@@ -3,7 +3,8 @@ import React from 'react';
 import { Routes,Route } from 'react-router-dom';
 import { ContactPage } from 'Pages/ContactPage/ContactPage';
 import { HomePage } from 'Pages/ContactPage/HomePage/HomePage';
-
+import { LoginPage } from 'Pages/ContactPage/LoginPage/LoginPage';
+import { SignUpPage } from 'Pages/ContactPage/SignUpPage/SignUpPage';
 
 export function App() {
   
@@ -11,9 +12,9 @@ export function App() {
     <Routes>
       <Route path='/' element={<div>Navigation</div>}/>
         <Route index element={<HomePage/>}/>
-        <Route path='/signUp' element={<div>Sign Up</div>}/>
-        <Route path='/login' element={<div>Log In</div>}/>
-        <Route path='/personal Contacts' element={ContactPage}/>
+        <Route path='/signup' element={<SignUpPage/>}/>
+        <Route path='/login' element={<LoginPage/>}/>
+        <Route path='/personal_contacts' element={<ContactPage/>}/>
     </Routes>
   );
 }
