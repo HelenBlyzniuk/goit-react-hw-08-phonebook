@@ -6,7 +6,8 @@ export const HomePage = () => {
   return (
     <div className="page-wrapper">
         <img src={tel} alt="telephone" className='homePageImg '/>
-        <h1 className="homePageTitle">Create your Phonebook</h1>    
+        <h1 className="homePageTitle">Create your Phonebook</h1> 
+        <h2 className="homePageSlogan">Orchestrate your contacts</h2>      
     <ul className="authButtons">
       <li className="authBtn">
         <button className="signup" onClick={()=>navigate('/signup')}>Sign Up</button>
