@@ -9,7 +9,7 @@ export const HomePage = () => {
         <h1 className="homePageTitle">Create your Phonebook</h1>    
     <ul className="authButtons">
       <li className="authBtn">
-        <button className="signup" onClick={navigate('/signup')}>Sign Up</button>
+        <button className="signup" onClick={()=>navigate('/signup')}>Sign Up</button>
       </li>
       <li className="authBtn">
         <button
