@@ -20,7 +20,7 @@ export const LoginPage=()=>{
    const handleSubmit=(e)=>{
       e.preventDefault();
       if(email!==''&& password!==''){
-        login({email,password})
+        login({email,password}).then(response=>console.log(response.token ))
       
       }
 

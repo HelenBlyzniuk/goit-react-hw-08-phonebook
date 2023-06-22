@@ -10,5 +10,5 @@ export const signUp=async(body)=>{
 
 export const login=async(body)=>{
     const response=await instatce.post('/users/login',body);
-    return response.token ;
+    return response.data ;
 }
