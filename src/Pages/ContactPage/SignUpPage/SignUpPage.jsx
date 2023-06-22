@@ -37,13 +37,13 @@ export const SignUpPage=()=>{
     return(
         <form  className="signUp"  onSubmit={handleSubmit}>
              <label  className="signupLabel">
-                <input type="name" className="signupInput" name="name" value={name} onChange={handleChange} placeholder="...name"/>
+                <input type="name" className="signupInput" name="name"  onChange={handleChange} placeholder="...name"/>
             </label>
             <label  className="signupLabel">
-                <input type="email" className="signupInput" name="email" value={email} onChange={handleChange} placeholder="...email"/>
+                <input type="email" className="signupInput" name="email"  onChange={handleChange} placeholder="...email"/>
             </label>
             <label  className="signupLabel">
-                <input type="password" className="signupInput" name="password" value={password} onChange={handleChange} placeholder="...password"/>
+                <input type="password" className="signupInput" name="password"  onChange={handleChange} placeholder="...password:not less 7 symblols"/>
             </label>
             <button className="submitSignup" type="submit">Sign in</button>
         </form>
