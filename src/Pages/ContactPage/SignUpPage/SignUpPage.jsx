@@ -1,4 +1,7 @@
+
+import { signUp } from "app/app";
 import { useState } from "react";
+
 
 
 export const SignUpPage=()=>{
@@ -6,31 +9,33 @@ export const SignUpPage=()=>{
    const [password,setPassword]=useState('');
    const[name,setName]=useState('');
    
+   
 
-   const handleChange=(e)=>{
-   if(e.target.name==='email'){
-    setEmail(e.target.value.trim())
+   const handleChange=({target:{name,value}})=>{
+   if(name==='email'){
+    setEmail(value)
    }
-   if(e.target.name==="password"){
-    setPassword(e.target.value.trim())
+   if(name==="password"){
+    setPassword(value)
    }
-   if(e.target.name==="name"){
-    setName(e.target.value.trim())
+   if(name==="name"){
+    setName(value)
    }
    }
 
 
    const handleSubmit=(e)=>{
       e.preventDefault();
-      if(email!==''&& password!==''){
-        return {name,email,password};
+      console.log({name,email,password})
+      if(email!==''&& password!==''&&name!==''){
+      signUp({name,email,password}) ;
       }
 
    }
   
    
     return(
-        <form  className="signUp">
+        <form  className="signUp"  onSubmit={handleSubmit}>
              <label  className="signupLabel">
                 <input type="name" className="signupInput" name="name" value={name} onChange={handleChange} placeholder="...name"/>
             </label>
@@ -40,7 +45,7 @@ export const SignUpPage=()=>{
             <label  className="signupLabel">
                 <input type="password" className="signupInput" name="password" value={password} onChange={handleChange} placeholder="...password"/>
             </label>
-            <button className="submitSignup" type="submit" onSubmit={handleSubmit}>Sign in</button>
+            <button className="submitSignup" type="submit">Sign in</button>
         </form>
     )
 }

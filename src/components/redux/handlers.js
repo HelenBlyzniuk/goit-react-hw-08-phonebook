@@ -9,7 +9,8 @@ export function handlePending(state) {
   }
   export function handleContactFetch(state, { payload }){
     state.isLoading = false;
-    state.items = payload;
+    console.log(payload)
+    // state.items = payload;
   }
   export function handleContactAdd(state,{payload}){
     state.isLoading = false;
