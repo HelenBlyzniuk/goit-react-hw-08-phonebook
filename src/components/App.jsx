@@ -10,6 +10,7 @@ import { NotFoundPage } from 'Pages/ContactPage/NotFoundPage/NotFoundPage';
 export function App() {
   
   return (
+    <div className="app-wrapper">
     <Routes>
       <Route path='/' element={<div>Navigation</div>}/>
         <Route index element={<HomePage/>}/>
@@ -19,6 +20,7 @@ export function App() {
         <Route path='*' element={<NotFoundPage/>}/>
 
     </Routes>
+    </div>
   );
 }
 

@@ -6,16 +6,24 @@ const initialState = {
   token: '',
   isLoading: false,
   error: '',
+  isLoggedIn:false,
+  email:'',
 };
 
 const handleSignUpThunkFullfilled = (state, { payload }) => {
+  
+  state.email=payload.user.email;
   state.token = payload.token;
   state.isLoading = false;
+  state.isLoggedIn=true;
+  
 };
 
 const handleLoginFulfilled = (state, { payload }) => {
+  state.email=payload.user.email;
   state.token = payload.token;
   state.isLoading = false;
+  state.isLoggedIn=true;
 };
 
 const authSlice = createSlice({

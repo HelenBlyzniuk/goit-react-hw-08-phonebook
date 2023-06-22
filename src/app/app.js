@@ -5,7 +5,7 @@ const instatce=axios.create({
 
 export const signUp=async(body)=>{
     const response=await instatce.post('/users/signup',body);
-    return response.token ;
+    return response.data ;
 }
 
 export const login=async(body)=>{

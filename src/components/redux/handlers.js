@@ -6,11 +6,12 @@ export function handlePending(state) {
  export function handleRejected(state, { payload }) {
     state.error = payload;
     state.isLoading = false;
+    state.isLoggedIn=false;
   }
   export function handleContactFetch(state, { payload }){
     state.isLoading = false;
-    console.log(payload)
-    // state.items = payload;
+    state.isLoggedIn=false;
+    state.items = payload;
   }
   export function handleContactAdd(state,{payload}){
     state.isLoading = false;
