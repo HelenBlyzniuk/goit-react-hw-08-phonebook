@@ -1,4 +1,5 @@
 import React from 'react';
+import { AppWrapper } from './App.styled';
 
 import { Routes,Route } from 'react-router-dom';
 import { ContactPage } from 'Pages/ContactPage/ContactPage';
@@ -10,7 +11,7 @@ import { NotFoundPage } from 'Pages/ContactPage/NotFoundPage/NotFoundPage';
 export function App() {
   
   return (
-    <div className="app-wrapper">
+    <AppWrapper>
     <Routes>
       <Route path='/' element={<div>Navigation</div>}/>
         <Route index element={<HomePage/>}/>
@@ -20,7 +21,7 @@ export function App() {
         <Route path='*' element={<NotFoundPage/>}/>
 
     </Routes>
-    </div>
+    </AppWrapper>
   );
 }
 
