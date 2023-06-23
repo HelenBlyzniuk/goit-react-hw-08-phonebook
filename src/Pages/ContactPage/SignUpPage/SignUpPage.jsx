@@ -1,4 +1,5 @@
 
+import { FormContainer,FormLabel,FormInput,FormButton } from 'components/ContactForm/ContactForm.styled';
 import { SignUpThunk } from 'components/redux/thunks';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -39,38 +40,37 @@ export const SignUpPage = () => {
 
   return (
     
-    
-    <form className="signUp" onSubmit={handleSubmit}>
-      <label className="signupLabel">
-        <input
+    <FormContainer onSubmit={handleSubmit}>
+      <FormLabel> Name
+        <FormInput
           type="name"
           className="signupInput"
           name="name"
           onChange={handleChange}
           placeholder="...name"
         />
-      </label>
-      <label className="signupLabel">
-        <input
+      </FormLabel>
+      <FormLabel> Email
+        <FormInput
           type="email"
           className="signupInput"
           name="email"
           onChange={handleChange}
           placeholder="...email"
         />
-      </label>
-      <label className="signupLabel">
-        <input
+      </FormLabel>
+      <FormLabel> Password
+        <FormInput
           type="password"
           className="signupInput"
           name="password"
           onChange={handleChange}
           placeholder="...password:not less 7 symblols"
         />
-      </label>
-      <button className="submitSignup" type="submit">
+      </FormLabel>
+      <FormButton type="submit">
         Sign in
-      </button>
-    </form>
+      </FormButton>
+    </FormContainer>
   );
 };

@@ -2,6 +2,7 @@
 import { LoginThunk } from "components/redux/thunks";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { FormContainer,FormLabel, FormInput,FormButton } from "components/ContactForm/ContactForm.styled";
 
 
 export const LoginPage=()=>{
@@ -30,14 +31,14 @@ export const LoginPage=()=>{
   
    
     return(
-        <form  className="login" onSubmit={handleSubmit}>
-            <label  className="loginLabel">
-                <input type="email" className="loginInput" name="email" value={email} onChange={handleChange} placeholder="...email"/>
-            </label>
-            <label  className="loginLabel">
-                <input type="password" className="loginInput" name="password" value={password} onChange={handleChange} placeholder="...password:not less 7 symblols"/>
-            </label>
-            <button className="submitLogin" type="submit">Log in</button>
-        </form>
+        <FormContainer onSubmit={handleSubmit}>
+            <FormLabel>
+                <FormInput type="email"  name="email" value={email} onChange={handleChange} placeholder="...email"/>
+            </FormLabel>
+            <FormLabel>
+                <FormInput type="password"  name="password" value={password} onChange={handleChange} placeholder="...password:not less 7 symblols"/>
+            </FormLabel>
+            <FormButton type="submit">Log in</FormButton>
+        </FormContainer>
     )
 }

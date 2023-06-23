@@ -1,25 +1,28 @@
 import { useNavigate } from 'react-router-dom';
 import tel from '../../../images/tel.jpg'
+import { HomePageWrapper,TitleWrapper,HomePageTitle,HomePageSlogan,AuthButtons,LoginButton, SingUpButton } from './HomePage.styled';
 
 export const HomePage = () => {
   const navigate = useNavigate();
   return (
-    <div className="page-wrapper">
+    <HomePageWrapper >
         <img src={tel} alt="telephone" className='homePageImg '/>
-        <h1 className="homePageTitle">Create your Phonebook</h1> 
-        <h2 className="homePageSlogan">Orchestrate your contacts</h2>      
-    <ul className="authButtons">
+    <TitleWrapper>
+        <HomePageTitle>Create your Phonebook:</HomePageTitle> 
+        <HomePageSlogan>Orchestrate your contacts</HomePageSlogan> 
+        <AuthButtons>
       <li className="authBtn">
-        <button className="signup" onClick={()=>navigate('/signup')}>Sign Up</button>
+        <SingUpButton onClick={()=>navigate('/signup')}>Sign Up</SingUpButton>
       </li>
       <li className="authBtn">
-        <button
-          className="login"
+        <LoginButton
           type="button"
           onClick={() => navigate('/login')}
-        >Log In</button>
+        >Log In</LoginButton>
       </li>
-    </ul>
-    </div>
+    </AuthButtons> 
+        </TitleWrapper>    
+    
+    </HomePageWrapper >
   );
 };
