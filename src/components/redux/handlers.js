@@ -1,11 +1,13 @@
 export function handlePending(state) {
     state.isLoading = true;
     state.error = null;
+    state.isLoggedIn=false;
   }
 
  export function handleRejected(state, { payload,error }) {
     state.error = error?error.message:payload;
     state.isLoading = false;
+    state.isLoggedIn=false;
     
   }
   export function handleContactFetch(state, { payload }){

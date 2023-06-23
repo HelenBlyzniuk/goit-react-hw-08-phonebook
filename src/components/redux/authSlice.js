@@ -7,21 +7,25 @@ const initialState = {
   isLoading: false,
   error: '',
   currentUser: null,
+  isLoggedIn:false,
 };
 
 const handleSignUpThunkFullfilled = (state, { payload }) => {
   state.token = payload.token;
   state.isLoading = false;
+  state.isLoggedIn=true;
 };
 
 const handleLoginFulfilled = (state, { payload }) => {
   state.token = payload.token;
   state.isLoading = false;
+  state.isLoggedIn=true;
 };
 const handleCurrentUserFulfilled = (state, { payload }) => {
   state.token = payload.token;
   state.isLoading = false;
   state.currentUser = payload;
+  state.isLoggedIn=true;
 };
 
 const authSlice = createSlice({

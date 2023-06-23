@@ -1,5 +1,5 @@
 
-import { LoginThunk } from "components/redux/thunks";
+import {  LoginThunk } from "components/redux/thunks";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { FormContainer,FormLabel, FormInput,FormButton } from "components/ContactForm/ContactForm.styled";
@@ -26,9 +26,12 @@ export const LoginPage=()=>{
       if(email!==''&& password!==''){
         dispatch(LoginThunk({email,password}))
       }
-
-   }
   
+   }
+   
+//   useEffect(()=>{
+//     dispatch(GetCurrentUserThunk());
+//   },[dispatch])
    
     return(
         <FormContainer onSubmit={handleSubmit}>

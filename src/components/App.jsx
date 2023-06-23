@@ -1,4 +1,4 @@
-import React from 'react';
+// import React, { useEffect, useState } from 'react';
 import { AppWrapper } from './App.styled';
 
 import { Routes,Route } from 'react-router-dom';
@@ -7,8 +7,15 @@ import { HomePage } from 'Pages/ContactPage/HomePage/HomePage';
 import { LoginPage } from 'Pages/ContactPage/LoginPage/LoginPage';
 import { SignUpPage } from 'Pages/ContactPage/SignUpPage/SignUpPage';
 import { NotFoundPage } from 'Pages/ContactPage/NotFoundPage/NotFoundPage';
+// import { useDispatch } from 'react-redux';
+// import { GetCurrentUserThunk } from './redux/thunks';
 
 export function App() {
+  // const dispatch=useDispatch();
+  // const isLoggedIn=useState(state=>state.auth.isLoggedIn)
+  // useEffect(()=>{
+  //   dispatch(GetCurrentUserThunk);
+  // },[dispatch])
   
   return (
     <AppWrapper>
