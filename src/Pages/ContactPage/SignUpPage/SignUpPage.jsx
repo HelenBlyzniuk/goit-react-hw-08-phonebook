@@ -2,7 +2,7 @@
 import { SignUpThunk } from 'components/redux/thunks';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {Navigate } from 'react-router-dom';
+// import {Navigate } from 'react-router-dom';
 
 export const SignUpPage = () => {
   const [email, setEmail] = useState('');
