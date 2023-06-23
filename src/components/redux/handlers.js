@@ -3,14 +3,14 @@ export function handlePending(state) {
     state.error = null;
   }
 
- export function handleRejected(state, { payload }) {
-    state.error = payload;
+ export function handleRejected(state, { payload,error }) {
+    state.error = error?error.message:payload;
     state.isLoading = false;
-    state.isLoggedIn=false;
+    
   }
   export function handleContactFetch(state, { payload }){
     state.isLoading = false;
-    state.isLoggedIn=false;
+   
     state.items = payload;
   }
   export function handleContactAdd(state,{payload}){

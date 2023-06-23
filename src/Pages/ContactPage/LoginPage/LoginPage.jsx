@@ -1,11 +1,13 @@
 
 import { LoginThunk } from "components/redux/thunks";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 
 export const LoginPage=()=>{
    const[email, setEmail]=useState('');
    const [password,setPassword]=useState('');
+   const dispatch=useDispatch();
    
 
    const handleChange=(e)=>{
@@ -21,7 +23,7 @@ export const LoginPage=()=>{
    const handleSubmit=(e)=>{
       e.preventDefault();
       if(email!==''&& password!==''){
-        dispatchEvent(LoginThunk({email,password}))
+        dispatch(LoginThunk({email,password}))
       }
 
    }
