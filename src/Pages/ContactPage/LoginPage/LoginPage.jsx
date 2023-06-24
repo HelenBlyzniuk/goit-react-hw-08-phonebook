@@ -1,7 +1,8 @@
 
 import {  LoginThunk } from "components/redux/thunks";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 import { FormContainer,FormLabel, FormInput,FormButton } from "components/ContactForm/ContactForm.styled";
 
 
@@ -9,6 +10,7 @@ export const LoginPage=()=>{
    const[email, setEmail]=useState('');
    const [password,setPassword]=useState('');
    const dispatch=useDispatch();
+   const isLoggedIn=useSelector(state=>state.auth.isLoggedIn)
    
 
    const handleChange=(e)=>{
@@ -29,11 +31,8 @@ export const LoginPage=()=>{
   
    }
    
-//   useEffect(()=>{
-//     dispatch(GetCurrentUserThunk());
-//   },[dispatch])
-   
-    return(
+
+    return isLoggedIn?( <Navigate to="/" replace/>):(
         <FormContainer onSubmit={handleSubmit}>
             <FormLabel>
                 <FormInput type="email"  name="email" value={email} onChange={handleChange} placeholder="...email"/>
@@ -43,5 +42,6 @@ export const LoginPage=()=>{
             </FormLabel>
             <FormButton type="submit">Log in</FormButton>
         </FormContainer>
+        
     )
 }

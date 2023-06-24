@@ -3,15 +3,15 @@ import { FormContainer,FormLabel,FormInput,FormButton } from 'components/Contact
 import { SignUpThunk } from 'components/redux/thunks';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import {Navigate } from 'react-router-dom';
+import {Navigate } from 'react-router-dom';
 
 export const SignUpPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const dispatch=useDispatch();
-  const isLoggedIn=useSelector(state=>state.isLoggedIn);
-  // const navigate=useNavigate()
+  const isLoggedIn=useSelector(state=>state.auth.isLoggedIn);
+ 
 
   const handleChange = ({ target: { name, value } }) => {
     if (name === 'email') {
@@ -32,13 +32,10 @@ export const SignUpPage = () => {
         dispatch(SignUpThunk({ name, email, password }))   
     }
 
-  //   if(isLoggedIn){
-  //     return<Navigate to='/' replace/>
-  //  }
   };
-  console.log(isLoggedIn)
+ 
 
-  return (
+  return isLoggedIn?( <Navigate to="/" replace/>): (
     
     <FormContainer onSubmit={handleSubmit}>
       <FormLabel> Name

@@ -4,11 +4,16 @@ const instance=axios.create({
 })
 
 export const setToken=(token)=>{
-    instance.defaults.headers.common['Authorization']=token;
+    // instance.defaults.headers.common['Authorization']=token;
+    axios.defaults.headers.common.Authorization = token;
+}
+export const clearToken=()=>{
+    instance.defaults.headers.common['Authorization']='';
 }
 export const signUp=async(body)=>{
     const response=await instance.post('users/signup',body);
     if(response.data.token in response.data)setToken(`Bearer ${response.data.token}`)
+    console.log(response.data.token)
     return response.data ;
 }
 
@@ -18,6 +23,11 @@ export const login=async(body)=>{
     return response.data ;
 }
 
+export const logOut=async()=>{
+    const response=await instance.post('users/logout');
+    clearToken();
+    return response;
+}
 export const currentUser=async()=>{
     
     const response=await instance('users/current');
