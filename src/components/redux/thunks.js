@@ -36,7 +36,9 @@ export const LogOutThunk= createAsyncThunk("auth/logOut", async (_,{rejectWithVa
 
 export const GetCurrentUserThunk=createAsyncThunk('auth/currentUser',async(_,thunkAPI)=>{
   const state=thunkAPI.getState();
+  console.log(state);
   const currentToken=state.auth.token;
+  console.log(currentToken);
   if(currentToken===''){
     return thunkAPI.rejectWithValue('Unable to fetch user');
   }

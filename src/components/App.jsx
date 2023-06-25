@@ -1,4 +1,4 @@
-// import React, { useEffect, useState } from 'react';
+// import React, { useEffect } from 'react';
 import { AppWrapper } from './App.styled';
 
 import { Routes,Route } from 'react-router-dom';
@@ -12,9 +12,9 @@ import { NotFoundPage } from 'Pages/ContactPage/NotFoundPage/NotFoundPage';
 
 export function App() {
   // const dispatch=useDispatch();
-  // const isLoggedIn=useState(state=>state.auth.isLoggedIn)
+  
   // useEffect(()=>{
-  //   dispatch(GetCurrentUserThunk);
+  //   dispatch(GetCurrentUserThunk());
   // },[dispatch])
   
   return (

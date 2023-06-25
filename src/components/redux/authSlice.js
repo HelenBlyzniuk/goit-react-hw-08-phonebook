@@ -31,11 +31,11 @@ const handleLoginFulfilled = (state, { payload }) => {
 const handleLogOutFulfilled = (state, { payload }) => {
   state.token = '';
   state.isLoading = false;
-  state.currentUser = {};
+  state.user = {};
   state.isLoggedIn = false;
 };
 const handleCurrentUserFulfilled = (state, { payload }) => {
-  state.token = payload.token;
+  
   state.isLoading = false;
   state.currentUser = payload;
   state.isLoggedIn = true;
@@ -48,7 +48,7 @@ const authSlice = createSlice({
     builder
       .addCase(SignUpThunk.fulfilled, handleSignUpThunkFullfilled)
       .addCase(LoginThunk.fulfilled, handleLoginFulfilled)
-      .addCase(GetCurrentUserThunk, handleCurrentUserFulfilled)
+      .addCase(GetCurrentUserThunk.fulfilled, handleCurrentUserFulfilled)
       .addCase(LogOutThunk.fulfilled, handleLogOutFulfilled)
       .addMatcher(({ type }) => {
         type.endsWith('/pending');

@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+
 import tel from '../../../images/tel.jpg';
 import {
   HomePageWrapper,
@@ -10,7 +12,7 @@ import {
   SingUpButton,
 } from './HomePage.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { LogOutThunk } from 'components/redux/thunks';
+import { LogOutThunk,GetCurrentUserThunk } from 'components/redux/thunks';
 
 export const HomePage = () => {
   const navigate = useNavigate();
@@ -18,6 +20,9 @@ export const HomePage = () => {
   const user = useSelector(state => state.auth.user);
   const dispatch=useDispatch();
 
+    useEffect(()=>{
+    dispatch(GetCurrentUserThunk());
+  },[dispatch])
   const handleClick=()=>{
     dispatch(LogOutThunk());
   }
