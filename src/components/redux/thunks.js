@@ -41,7 +41,7 @@ export const GetCurrentUserThunk=createAsyncThunk('auth/currentUser',async(_,thu
     return thunkAPI.rejectWithValue('Unable to fetch user');
   }
   try {
-    setToken(currentToken);
+    setToken(`Bearer ${currentToken}`);
     const user=await currentUser();
     return user;
   } catch (error) {
