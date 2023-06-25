@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { initialState } from './initialState';
-import { deleteContact, fetchContactsThunk,addContact } from './thunks';
+import { deleteContact, fetchContactsThunk,addContactThunk } from './thunks';
 import { handleContactAdd,handleContactFetch,handleDeleteContact,handlePending,handleRejected } from './handlers';
 
 const contactSlice = createSlice({
@@ -9,7 +9,7 @@ const contactSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchContactsThunk.fulfilled, handleContactFetch)
-      .addCase(addContact.fulfilled, handleContactAdd)
+      .addCase(addContactThunk.fulfilled, handleContactAdd)
       .addCase(deleteContact.fulfilled, handleDeleteContact)
       .addMatcher(action => {
         action.type.endsWith('/pending');

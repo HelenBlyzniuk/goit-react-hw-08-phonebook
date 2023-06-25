@@ -39,3 +39,8 @@ export const fetchContacts=async()=>{
   const response=await instance.get('/contacts');
   return response.data;
 }
+
+export const addContact=async(body)=>{
+  const response=await instance.post('/contacts',body)
+  return response;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { nanoid } from 'nanoid';
+
 
 import {
   FormContainer,
@@ -11,7 +11,7 @@ import {
 
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'components/redux/thunks.js';
+import { addContactThunk } from 'components/redux/thunks.js';
 import { getContacts } from 'components/redux/selectors.js';
 
 
@@ -32,11 +32,11 @@ export function ContactForm() {
               alert('The contact has already existed');
               return;
             } else {
-              dispatch(addContact({
-                createdAt:Date(),
+              dispatch(addContactThunk({
+                
                 name:e.target.elements.name.value,
-                phone:e.target.elements.number.value,
-                id:nanoid()
+                number:e.target.elements.number.value,
+                
               })) 
                form.reset();
             }  
