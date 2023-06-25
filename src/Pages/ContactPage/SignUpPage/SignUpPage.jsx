@@ -27,7 +27,7 @@ export const SignUpPage = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log({ name, email, password });
+    
     if (email !== '' && password !== '' && name !== '') {
         dispatch(SignUpThunk({ name, email, password }))   
     }

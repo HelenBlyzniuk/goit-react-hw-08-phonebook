@@ -24,7 +24,7 @@ export const LoginThunk= createAsyncThunk("auth/login", async (body,{rejectWithV
  
 });
 
-export const LogOutThunk= createAsyncThunk("auth/logOut", async ({rejectWithValue}) => { 
+export const LogOutThunk= createAsyncThunk("auth/logOut", async (_,{rejectWithValue}) => { 
   try {
     const data=await logOut();
     return data;
