@@ -30,6 +30,6 @@ export const logOut = async () => {
 
 
 export const currentUser = async () => {
-  const response = await instance('users/current');
+  const response = await instance.get('users/current');
   return response.data;
 };
