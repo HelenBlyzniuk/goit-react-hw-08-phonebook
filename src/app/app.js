@@ -33,3 +33,9 @@ export const currentUser = async () => {
   const response = await instance.get('users/current');
   return response.data;
 };
+
+
+export const fetchContacts=async()=>{
+  const response=await instance.get('/contacts');
+  return response.data;
+}

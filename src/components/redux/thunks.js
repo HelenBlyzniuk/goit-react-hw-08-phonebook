@@ -1,7 +1,7 @@
 
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { currentUser, logOut, login, setToken, signUp } from "app/app";
+import { currentUser, logOut, login, setToken, signUp,fetchContacts } from "app/app";
 
 
 
@@ -54,9 +54,9 @@ export const GetCurrentUserThunk=createAsyncThunk('auth/currentUser',async(_,thu
 )
 
 
-export const fetchContacts= createAsyncThunk("contactss/fetchAll", async () => {
-    const response = await axios.get("/contacts");
-    return response.data;
+export const fetchContactsThunk= createAsyncThunk("contactss/fetchAll", async () => {
+    const contacts = await fetchContacts();
+    return contacts;
   });
 
 
