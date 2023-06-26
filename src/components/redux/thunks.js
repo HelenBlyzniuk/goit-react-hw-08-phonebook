@@ -70,8 +70,8 @@ export const fetchContactsThunk= createAsyncThunk("contactss/fetchAll", async ()
     }
     try {
       setToken(`Bearer ${currentToken}`);
-      console.log(JSON.stringify({name,number}))
-       const response=await addContact("/contacts",JSON.stringify({name,number}));
+      console.log({name,number})
+       const response=await addContact("/contacts",{name,number});
        return response.data; 
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message)
