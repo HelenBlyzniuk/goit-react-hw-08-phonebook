@@ -45,3 +45,13 @@ export const addContact=async(body)=>{
   const response=await instance.post('/contacts', body)
   return response;
 }
+
+export const deleteContact=async(id)=>{
+  const response=await instance.delete(`/contacts/${id}`)
+  return response;
+}
+
+export const patchContact=async(id)=>{
+  const response=await instance.patch(`/contacts/${id}`)
+  return response;
+}

@@ -12,7 +12,6 @@ export function handlePending(state) {
   }
   export function handleContactFetch(state, { payload }){
     state.isLoading = false;
-   
     state.items = payload;
   }
   export function handleContactAdd(state,{payload}){
@@ -22,4 +21,9 @@ export function handlePending(state) {
  export function handleDeleteContact(state,{payload}){
     state.isLoading = false;
     state.items=state.items.filter(contact => contact.id !== payload.id);
+  }
+  export function handlePatchContact(state,{payload}){
+    state.isLoading=false;
+    state.items=state.items.filter(contact => contact.id !== payload.id).push(payload)
+    
   }

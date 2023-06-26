@@ -1,7 +1,7 @@
 
-import axios from "axios";
+
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { currentUser, logOut, login, setToken, signUp,fetchContacts,addContact } from "app/app";
+import { currentUser, logOut, login, setToken, signUp,fetchContacts,addContact, deleteContact, patchContact } from "app/app";
 
 
 
@@ -70,17 +70,25 @@ export const fetchContactsThunk= createAsyncThunk("contactss/fetchAll", async ()
     }
     try {
       setToken(`Bearer ${currentToken}`);
-      console.log({name,number})
-       const response=await addContact("/contacts",{name,number});
+      console.log(JSON.stringify({name,number}))
+       const response=await addContact("/contacts",JSON.stringify({name,number}));
        return response.data; 
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message)
     }
   })
 
-  export const deleteContact =createAsyncThunk("contacts/deleteContact",async(id,thunkAPI)=>{
+
+  export const deleteContactThunk =createAsyncThunk("contacts/deleteContact",async(id,thunkAPI)=>{
+    const state=thunkAPI.getState();
+    const currentToken=state.auth.token;
+    
+    if(currentToken===''){
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
     try {
-        const response=await axios.delete(`/contacts/${id}`)
+      setToken(`Bearer ${currentToken}`);
+        const response=await deleteContact(`/contacts/${id}`)
         return response.data; 
          
     } catch (error) {
@@ -89,6 +97,25 @@ export const fetchContactsThunk= createAsyncThunk("contactss/fetchAll", async ()
       
       } )
 
+
+      export const patchContactThunk=createAsyncThunk('contacts/patchContacts',async(id,thunkAPI)=>{
+
+   const state=thunkAPI.getState();
+    const currentToken=state.auth.token;
+    
+    if(currentToken===''){
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+
+    try {
+      setToken(`Bearer ${currentToken}`);
+      const response=await patchContact(`/contacts/${id}`)
+      return response.data;
+      
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message)
+    }
+      })
       
 //       axios.defaults.baseURL = "https://648c54b28620b8bae7ecb565.mockapi.io/";
 

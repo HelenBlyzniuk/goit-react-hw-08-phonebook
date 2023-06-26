@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 import { ListContainer, ListItem, ListButton } from './ContactList.styled.jsx';
-import { deleteContact } from 'components/redux/thunks.js';
+import { deleteContactThunk, patchContactThunk } from 'components/redux/thunks.js';
 import { getContacts, getFilter } from 'components/redux/selectors.js';
 
 export function ContactList() {
@@ -19,9 +19,12 @@ export function ContactList() {
  
   const dispatch=useDispatch();
   const handleClick = e => {
-    dispatch(deleteContact(e.currentTarget.id));
+    dispatch(deleteContactThunk(e.currentTarget.id));
     
   };
+  const handlePatchClick=e=>{
+    dispatch(patchContactThunk(e.currentTarget.id))
+  }
  
   return (
     <ListContainer>
@@ -36,6 +39,14 @@ export function ContactList() {
             onClick={handleClick}
           >
             Delete
+          </ListButton>
+          <ListButton
+            type="button"
+            className="patchContact"
+            id={id}
+            onClick={handlePatchClick}
+          >
+           Correct
           </ListButton>
         </ListItem>
       ))}
