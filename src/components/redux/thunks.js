@@ -61,7 +61,16 @@ export const fetchContactsThunk= createAsyncThunk("contactss/fetchAll", async ()
 
 
   export const addContactThunk = createAsyncThunk("contacts/addContact",async ({name,number},thunkAPI)=>{
+    const state=thunkAPI.getState();
+    console.log(state);
+    const currentToken=state.auth.token;
+    console.log(currentToken);
+    if(currentToken===''){
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
     try {
+      setToken(`Bearer ${currentToken}`);
+      console.log({name,number})
        const response=await addContact("/contacts",{name,number});
        return response.data; 
     } catch (error) {
