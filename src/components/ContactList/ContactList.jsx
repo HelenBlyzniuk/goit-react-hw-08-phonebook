@@ -30,9 +30,9 @@ export function ContactList() {
   return (
     <ListContainer>
       List of contacts
-      {visibleContacts.map(({ name, phone, id }) => (
+      {visibleContacts.map(({ name, number, id }) => (
         <ListItem id={id} key={id}>
-          {name}: {phone}
+          {name}: {number}
           <ListButton
             type="button"
             className="deleteContact"

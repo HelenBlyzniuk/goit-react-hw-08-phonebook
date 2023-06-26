@@ -60,18 +60,11 @@ export const fetchContactsThunk= createAsyncThunk("contactss/fetchAll", async ()
   });
 
 
-  export const addContactThunk = createAsyncThunk("contacts/addContact",async ({name,number},thunkAPI)=>{
-    const state=thunkAPI.getState();
-    console.log(state);
-    const currentToken=state.auth.token;
-    console.log(currentToken);
-    if(currentToken===''){
-      return thunkAPI.rejectWithValue('Unable to fetch user');
-    }
+  export const addContactThunk = createAsyncThunk("contacts/addContact",async (body,thunkAPI)=>{
+    
     try {
-      setToken(`Bearer ${currentToken}`);
-      console.log({name,number})
-       const response=await addContact("/contacts",{name,number});
+      
+       const response=await addContact(body);
        return response.data; 
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message)
@@ -88,7 +81,7 @@ export const fetchContactsThunk= createAsyncThunk("contactss/fetchAll", async ()
     }
     try {
       setToken(`Bearer ${currentToken}`);
-        const response=await deleteContact(`/contacts/${id}`)
+        const response=await deleteContact(id)
         return response.data; 
          
     } catch (error) {
@@ -109,7 +102,7 @@ export const fetchContactsThunk= createAsyncThunk("contactss/fetchAll", async ()
 
     try {
       setToken(`Bearer ${currentToken}`);
-      const response=await patchContact(`/contacts/${id}`)
+      const response=await patchContact(id)
       return response.data;
       
     } catch (error) {

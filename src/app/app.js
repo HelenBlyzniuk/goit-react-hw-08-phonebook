@@ -1,6 +1,6 @@
 import axios from 'axios';
 const instance = axios.create({
-  baseURL: 'https://connections-api.herokuapp.com',
+  baseURL: 'https://connections-api.herokuapp.com/',
 });
 
 
@@ -42,7 +42,7 @@ export const fetchContacts=async()=>{
 }
 
 export const addContact=async(body)=>{
- 
+ console.log(body)
   const response=await instance.post('/contacts', body)
   return response;
 }
