@@ -27,6 +27,7 @@ export function ContactList() {
     dispatch(patchContactThunk(e.currentTarget.id))
   }
  
+  
   return (
     <ListContainer>
       List of contacts
