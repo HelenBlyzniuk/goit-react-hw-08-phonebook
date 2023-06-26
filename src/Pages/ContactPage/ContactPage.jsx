@@ -7,30 +7,35 @@ import { fetchContactsThunk } from 'components/redux/thunks';
 import { getContacts, getError, getIsLoading } from 'components/redux/selectors';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { UserBar } from 'components/UserBar/UserBar';
 
 export const ContactPage=()=>{
     const dispatch = useDispatch();
     const loading = useSelector(getIsLoading);
     const error = useSelector(getError);
     const items = useSelector(getContacts);
+    
    
   
     useEffect(() => {
-    dispatch(fetchContactsThunk());
+      
+    dispatch(fetchContactsThunk())
+    
   }, [dispatch]);
+
     return(<div
         style={{
           height: '100vh',
           display: 'block',
-          maxWidth: '600px',
+          minWidth: '600px',
           marginLeft: 'auto',
           marginRight: 'auto',
           fontSize: 30,
           color: 'grey',
         }}
       >
-        <h1>Phonebook</h1>
-  
+        <UserBar/>
+        
         <ContactForm />
   
         <h2>Contacts</h2>

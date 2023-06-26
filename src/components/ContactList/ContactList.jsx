@@ -12,6 +12,7 @@ export function ContactList() {
   const filterState=useSelector(getFilter)
   const contacts =useSelector(getContacts)
   
+  
  
   const normalizedFilter = filterState.toLowerCase();
   const visibleContacts = contacts.filter(contact =>

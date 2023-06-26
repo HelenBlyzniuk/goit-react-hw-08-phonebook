@@ -11,26 +11,29 @@ import {
   LoginButton,
   SingUpButton,
 } from './HomePage.styled';
+import { UserBar } from 'components/UserBar/UserBar';
+
 import { useDispatch, useSelector } from 'react-redux';
-import { LogOutThunk,GetCurrentUserThunk } from 'components/redux/thunks';
+import { GetCurrentUserThunk } from 'components/redux/thunks';
 
 export const HomePage = () => {
   const navigate = useNavigate();
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const user = useSelector(state => state.auth.user);
+  
   const dispatch=useDispatch();
 
     useEffect(()=>{
     dispatch(GetCurrentUserThunk());
+    
   },[dispatch])
-  const handleClick=()=>{
-    dispatch(LogOutThunk());
-  }
-
+  
+ 
   return (
     <>
-      {isLoggedIn && <div>hello! User {user.email}</div>}
+      {isLoggedIn && user.email!=='' &&<UserBar/>}
       <HomePageWrapper>
+      
         <img src={tel} alt="telephone" className="homePageImg " />
         <TitleWrapper>
           <HomePageTitle>Create your Phonebook:</HomePageTitle>
@@ -53,11 +56,7 @@ export const HomePage = () => {
                 My contacts
               </SingUpButton>
             </li>
-            <li className="authBtn">
-              <LoginButton type="button" onClick={handleClick}>
-                Log Out
-              </LoginButton>
-            </li>
+            
           </AuthButtons>} 
         </TitleWrapper>
       </HomePageWrapper>
