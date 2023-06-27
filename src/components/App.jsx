@@ -20,7 +20,7 @@ export function App() {
       <Route path='/' element={<div>Navigation</div>}/>
         <Route index element={<HomePage/>}/>
         <Route path='/signup' element={<PublicRoute><SignUpPage/></PublicRoute>}/>
-        <Route path='/login' element={<PublicRoute><LoginPage/></PublicRoute>}/>
+        <Route path='/login' element={<LoginPage/>}/>
         <Route path='/personal_contacts' element={<PrivateRoute><ContactPage/></PrivateRoute>}/>
         <Route path='*' element={<NotFoundPage/>}/>
 
