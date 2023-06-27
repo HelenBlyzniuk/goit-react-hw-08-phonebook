@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import PropTypes from 'prop-types';
 import {
   FormContainer,
   FormLabel,
@@ -78,3 +78,9 @@ export const CorrectContactForm = ({ contact, onModalClick }) => {
     </FormContainer>
   );
 };
+
+
+CorrectContactForm.propTypes={
+  contact:PropTypes.array.isRequired,
+ onModalClick:PropTypes.func.isRequired
+}

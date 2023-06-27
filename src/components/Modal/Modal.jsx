@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
 import { Overlay,Modal } from './Modal.styled';
-
+import PropTypes from 'prop-types';
 import { CorrectContactForm } from 'components/CorrectContactForm/CorrectContactForm';
 
 
@@ -36,4 +36,9 @@ export function ModalComponent({ contact,onModalClick }) {
     </Overlay>,
     modalRoot
   );
+}
+
+Modal.propTypes={
+  contact:PropTypes.array.isRequired,
+  onModalClick:PropTypes.func.isRequired
 }
