@@ -1,4 +1,4 @@
-// import React, { useEffect } from 'react';
+
 import { AppWrapper } from './App.styled';
 
 import { Routes,Route } from 'react-router-dom';
@@ -8,15 +8,10 @@ import { LoginPage } from 'Pages/ContactPage/LoginPage/LoginPage';
 import { SignUpPage } from 'Pages/ContactPage/SignUpPage/SignUpPage';
 import { NotFoundPage } from 'Pages/ContactPage/NotFoundPage/NotFoundPage';
 import PrivateRoute from 'Routes/PrivateRoute';
-// import { useDispatch } from 'react-redux';
-// import { GetCurrentUserThunk } from './redux/thunks';
+
 
 export function App() {
-  // const dispatch=useDispatch();
   
-  // useEffect(()=>{
-  //   dispatch(GetCurrentUserThunk());
-  // },[dispatch])
   
   return (
     <AppWrapper>

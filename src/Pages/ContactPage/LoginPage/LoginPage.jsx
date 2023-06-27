@@ -4,13 +4,14 @@ import { useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { FormContainer,FormLabel, FormInput,FormButton } from "components/ContactForm/ContactForm.styled";
+import { getIsLoggedIn } from "components/redux/selectors";
 
 
 export const LoginPage=()=>{
    const[email, setEmail]=useState('');
    const [password,setPassword]=useState('');
    const dispatch=useDispatch();
-   const isLoggedIn=useSelector(state=>state.auth.isLoggedIn)
+   const isLoggedIn=useSelector(getIsLoggedIn);
    
 
    const handleChange=(e)=>{

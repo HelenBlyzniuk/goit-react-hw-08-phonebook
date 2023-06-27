@@ -14,7 +14,7 @@ export const CorrectContactForm = ({ contact, onModalClick }) => {
   const id = contact.find(item => {
     return item.id;
   });
-  console.log(id.id, id.name, id.number);
+  
 
   const [idContact] = useState(id.id);
 

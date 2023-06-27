@@ -1,5 +1,6 @@
 
 import { FormContainer,FormLabel,FormInput,FormButton } from 'components/ContactForm/ContactForm.styled';
+import { getIsLoggedIn } from 'components/redux/selectors';
 import { SignUpThunk } from 'components/redux/thunks';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +11,7 @@ export const SignUpPage = () => {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const dispatch=useDispatch();
-  const isLoggedIn=useSelector(state=>state.auth.isLoggedIn);
+  const isLoggedIn=useSelector(getIsLoggedIn);
  
 
   const handleChange = ({ target: { name, value } }) => {

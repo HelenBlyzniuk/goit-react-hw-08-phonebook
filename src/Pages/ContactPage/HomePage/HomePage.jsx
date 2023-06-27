@@ -15,11 +15,12 @@ import { UserBar } from 'components/UserBar/UserBar';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { GetCurrentUserThunk } from 'components/redux/thunks';
+import { getUser, getIsLoggedIn } from 'components/redux/selectors';
 
 export const HomePage = () => {
   const navigate = useNavigate();
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-  const user = useSelector(state => state.auth.user);
+  const isLoggedIn = useSelector(getIsLoggedIn);
+  const user = useSelector(getUser);
   
   const dispatch=useDispatch();
 
