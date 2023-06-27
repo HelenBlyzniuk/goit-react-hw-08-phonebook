@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom';
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Overlay,Modal } from './Modal.styled';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 
@@ -7,30 +7,30 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export function ModalComponent({ id }) {
-//   const handleClick = e => {
-//     if (e.target.nodeName === 'IMG') {
-//       return;
-//     }
-//     handleModalClick();
-//   };
+export function ModalComponent({ contact,onModalClick }) {
+  const handleClick = e => {
+    if (e.target.nodeName === 'FORM') {
+      return;
+    }
+   onModalClick();
+  };
 
-//   useEffect(() => {
-//     window.addEventListener('keydown', e => {
-//       if (e.code === 'Escape') {
-//         handleModalClick();
-//       }
-//     });
+  useEffect(() => {
+    window.addEventListener('keydown', e => {
+      if (e.code === 'Escape') {
+        onModalClick();
+      }
+    });
 
-//     return () => {
-//       return window.removeEventListener('keydown', handleModalClick);
-//     };
-//   }, [handleModalClick]);
+    return () => {
+      return window.removeEventListener('keydown', onModalClick);
+    };
+  }, [onModalClick]);
 
   return createPortal(
-    <Overlay >
+    <Overlay onClick={handleClick}>
       <Modal>
-       <ContactForm/>
+       <ContactForm contact={contact}/>
       </Modal>
     </Overlay>,
     modalRoot
