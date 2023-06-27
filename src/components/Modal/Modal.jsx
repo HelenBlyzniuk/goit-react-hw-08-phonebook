@@ -28,7 +28,7 @@ export function ModalComponent({ id }) {
 //   }, [handleModalClick]);
 
   return createPortal(
-    <Overlay onClick={handleClick}>
+    <Overlay >
       <Modal>
        <ContactForm/>
       </Modal>
