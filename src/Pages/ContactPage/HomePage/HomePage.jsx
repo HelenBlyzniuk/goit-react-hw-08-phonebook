@@ -51,14 +51,7 @@ export const HomePage = () => {
               </LoginButton>
             </li>
           </AuthButtons>} 
-          {isLoggedIn&&<AuthButtons>
-            <li className="authBtn">
-              <SingUpButton onClick={() => navigate('/personal_contacts')}>
-                My contacts
-              </SingUpButton>
-            </li>
-            
-          </AuthButtons>} 
+          
         </TitleWrapper>
       </HomePageWrapper>
     </>

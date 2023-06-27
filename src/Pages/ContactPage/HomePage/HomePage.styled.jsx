@@ -42,10 +42,10 @@ padding:0px;
 
 export const SingUpButton=styled.button`
 
-// font-size: 15px;
+ font-size: 15px;
   background-color: white;
   color: green;
-  display: block;
+  display: inline-block;
   margin-top: 15px;
   border: solid 1px white;
   min-width: 150px;
@@ -62,10 +62,10 @@ export const SingUpButton=styled.button`
 
 export const LoginButton=styled.button`
 
-// font-size: 15px;
+ font-size: 15px;
   background-color:  green;
   color:white;
-  display: block;
+  display: inline-block;
   margin-top: 15px;
   border: solid 1px white;
   min-width: 150px;

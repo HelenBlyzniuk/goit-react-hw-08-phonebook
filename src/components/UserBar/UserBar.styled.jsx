@@ -17,4 +17,6 @@ export const UserBarSentence=styled.p`
 font-size:20px;
 font-weight:bold;
 color:green;
-margin:0;`
+margin:0;
+`
+
