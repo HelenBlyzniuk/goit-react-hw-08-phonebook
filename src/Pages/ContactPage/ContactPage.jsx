@@ -8,6 +8,7 @@ import { getContacts, getError, getIsLoading } from 'components/redux/selectors'
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserBar } from 'components/UserBar/UserBar';
+import { Title } from './ContactPage.styled';
 
 export const ContactPage=()=>{
     const dispatch = useDispatch();
@@ -38,7 +39,7 @@ export const ContactPage=()=>{
         
         <ContactForm />
   
-        <h2>Contacts</h2>
+        <Title>Contacts</Title>
   
         <Filter />
         {loading && <Loader/>}

@@ -8,6 +8,8 @@ export const ListContainer = styled.ol`
   background-color: green;
   font-weight: bold;
   color: white;
+  margin-right:auto;
+  margin-left:auto;
 `;
 export const ListItem = styled.li`
   font-size: 25px;
@@ -20,7 +22,9 @@ export const ListItem = styled.li`
   justify-content: space-between;
   aling-items: center;
 `;
-
+export const ListButtonContainer=styled.div`
+display:flex;
+gap:20px;`
 export const ListButton = styled.button`
   font-size: 15px;
   background-color: white;

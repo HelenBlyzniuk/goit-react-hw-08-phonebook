@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { useSelector } from 'react-redux';
 
-import { ListContainer, ListItem, ListButton } from './ContactList.styled.jsx';
+import { ListContainer, ListItem, ListButton,ListButtonContainer } from './ContactList.styled.jsx';
 import { deleteContactThunk} from 'components/redux/thunks.js';
 import { getContacts, getFilter } from 'components/redux/selectors.js';
 import {  useState } from 'react';
@@ -32,8 +32,7 @@ export function ContactList() {
     const correctedContact=contacts.filter(contact=>contact.id===id)
     setShowModal(true);
     setCorrectedContact(correctedContact)
-    console.log(correctedContact)
-    // dispatch(patchContactThunk(e.currentTarget.id))
+    
   }
   const handleModalClick = () => {
     setShowModal(false);
@@ -47,6 +46,7 @@ export function ContactList() {
       {visibleContacts.map(({ name, number, id }) => (
         <ListItem id={id} key={id}>
           {name}: {number}
+          <ListButtonContainer>
           <ListButton
             type="button"
             className="deleteContact"
@@ -63,6 +63,7 @@ export function ContactList() {
           >
            Correct
           </ListButton>
+          </ListButtonContainer>
           {showModal&&<ModalComponent onModalClick={handleModalClick} contact={correctedContact}/>}
         </ListItem>
       ))}

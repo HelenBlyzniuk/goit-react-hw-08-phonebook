@@ -7,6 +7,8 @@ export const FilterContainer = styled.form`
   box-shadow: 10px 5px 5px grey;
   display: flex;
   gap: 50px;
+  margin-right:auto;
+  margin-left:auto;
 `;
 
 export const FilterInput = styled.input`
