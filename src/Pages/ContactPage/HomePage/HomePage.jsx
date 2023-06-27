@@ -21,6 +21,7 @@ export const HomePage = () => {
   const navigate = useNavigate();
   const isLoggedIn = useSelector(getIsLoggedIn);
   const user = useSelector(getUser);
+  console.log(user)
   
   const dispatch=useDispatch();
 
