@@ -6,3 +6,4 @@ export const getError =state=>state.contacts.error;
 
 export const getFilter =state=>state.filters;
     
+export const getUserEmail=state=>state.auth.use.email

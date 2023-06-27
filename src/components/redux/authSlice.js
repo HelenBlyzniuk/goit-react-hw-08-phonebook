@@ -1,11 +1,18 @@
-const { createSlice } = require('@reduxjs/toolkit');
-const {
+import { createSlice } from '@reduxjs/toolkit';
+import {
   SignUpThunk,
   LoginThunk,
   GetCurrentUserThunk,
   LogOutThunk,
-} = require('./thunks');
-const { handlePending, handleRejected } = require('./handlers');
+} from './thunks';
+import {
+  handlePending,
+  handleRejected,
+  handleSignUpThunkFullfilled,
+  handleLoginFulfilled,
+  handleLogOutFulfilled,
+  handleCurrentUserFulfilled,
+} from './handlers';
 
 const initialState = {
   token: '',
@@ -13,32 +20,6 @@ const initialState = {
   error: '',
   user: {},
   isLoggedIn: false,
-};
-
-const handleSignUpThunkFullfilled = (state, { payload }) => {
-  state.token = payload.token;
-  state.user = payload.user;
-  state.isLoading = false;
-  state.isLoggedIn = true;
-};
-
-const handleLoginFulfilled = (state, { payload }) => {
-  state.token = payload.token;
-  state.user = payload.user;
-  state.isLoading = false;
-  state.isLoggedIn = true;
-};
-const handleLogOutFulfilled = (state, { payload }) => {
-  state.token = '';
-  state.isLoading = false;
-  state.user = {};
-  state.isLoggedIn = false;
-};
-const handleCurrentUserFulfilled = (state, { payload }) => {
-  
-  state.isLoading = false;
-  state.currentUser = payload;
-  state.isLoggedIn = true;
 };
 
 const authSlice = createSlice({

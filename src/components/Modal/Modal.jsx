@@ -31,7 +31,7 @@ export function ModalComponent({ contact,onModalClick }) {
   return createPortal(
     <Overlay onClick={handleClick}>
       <Modal>
-       <CorrectContactForm contact={contact}/>
+       <CorrectContactForm contact={contact} onModalClick={onModalClick}/>
       </Modal>
     </Overlay>,
     modalRoot
