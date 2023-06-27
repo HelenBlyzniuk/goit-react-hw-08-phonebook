@@ -1,7 +1,8 @@
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
 import { Overlay,Modal } from './Modal.styled';
-import { ContactForm } from 'components/ContactForm/ContactForm';
+
+import { CorrectContactForm } from 'components/CorrectContactForm/CorrectContactForm';
 
 
 
@@ -9,7 +10,7 @@ const modalRoot = document.querySelector('#modal-root');
 
 export function ModalComponent({ contact,onModalClick }) {
   const handleClick = e => {
-    if (e.target.nodeName === 'FORM') {
+    if (e.target.nodeName === 'FORM'||e.target.nodeName === 'INPUT'||e.target.nodeName === 'LABEL'||e.target.nodeName === 'BUTTON') {
       return;
     }
    onModalClick();
@@ -30,7 +31,7 @@ export function ModalComponent({ contact,onModalClick }) {
   return createPortal(
     <Overlay onClick={handleClick}>
       <Modal>
-       <ContactForm contact={contact}/>
+       <CorrectContactForm contact={contact}/>
       </Modal>
     </Overlay>,
     modalRoot

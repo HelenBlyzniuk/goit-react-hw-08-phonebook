@@ -52,7 +52,7 @@ export const deleteContact=async(id)=>{
   return response;
 }
 
-export const patchContact=async(id)=>{
-  const response=await instance.patch(`/contacts/${id}`)
+export const patchContact=async({idContact,name,number})=>{
+  const response=await instance.patch(`/contacts/${idContact}`,{name,number})
   return response;
 }

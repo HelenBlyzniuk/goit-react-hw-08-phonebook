@@ -91,18 +91,11 @@ export const fetchContactsThunk= createAsyncThunk("contactss/fetchAll", async ()
       } )
 
 
-      export const patchContactThunk=createAsyncThunk('contacts/patchContacts',async(id,thunkAPI)=>{
-
-   const state=thunkAPI.getState();
-    const currentToken=state.auth.token;
-    
-    if(currentToken===''){
-      return thunkAPI.rejectWithValue('Unable to fetch user');
-    }
-
+      export const patchContactThunk=createAsyncThunk('contacts/patchContacts',async({idContact,name,number},thunkAPI)=>{
     try {
-      setToken(`Bearer ${currentToken}`);
-      const response=await patchContact(id)
+      console.log(idContact,name,number)
+      const response=await patchContact({idContact,name,number})
+      
       return response.data;
       
     } catch (error) {

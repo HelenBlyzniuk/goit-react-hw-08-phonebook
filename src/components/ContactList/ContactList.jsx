@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { ListContainer, ListItem, ListButton } from './ContactList.styled.jsx';
 import { deleteContactThunk} from 'components/redux/thunks.js';
 import { getContacts, getFilter } from 'components/redux/selectors.js';
-import { useState } from 'react';
+import {  useState } from 'react';
 import { ModalComponent } from 'components/Modal/Modal.jsx';
 
 export function ContactList() {
@@ -38,6 +38,8 @@ export function ContactList() {
   const handleModalClick = () => {
     setShowModal(false);
   };
+
+ 
   
   return (
     <ListContainer>
