@@ -21,13 +21,12 @@ import { getUser, getIsLoggedIn } from 'components/redux/selectors';
   const navigate = useNavigate();
   const isLoggedIn = useSelector(getIsLoggedIn);
   const user = useSelector(getUser);
-  console.log(user)
+  
   
   const dispatch=useDispatch();
 
     useEffect(()=>{
     dispatch(GetCurrentUserThunk());
-    
   },[dispatch])
   
  

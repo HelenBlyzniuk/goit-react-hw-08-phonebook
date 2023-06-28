@@ -39,6 +39,6 @@ export function ModalComponent({ contact,onModalClick }) {
 }
 
 Modal.propTypes={
-  contact:PropTypes.array.isRequired,
-  onModalClick:PropTypes.func.isRequired
+  contact:PropTypes.array,
+  onModalClick:PropTypes.func,
 }

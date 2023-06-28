@@ -14,9 +14,6 @@ const NotFoundPage =lazy(()=>import('Pages/ContactPage/NotFoundPage/NotFoundPage
 
 
 
-
-
-
 export function App() {
   
   
@@ -27,7 +24,7 @@ export function App() {
       <Route path='/' element={<div>Navigation</div>}/>
         <Route index element={<HomePage/>}/>
         <Route path='/signup' element={<PublicRoute><SignUpPage/></PublicRoute>}/>
-        <Route path='/login' element={<LoginPage/>}/>
+        <Route path='/login' element={<PublicRoute><LoginPage/></PublicRoute>}/>
         <Route path='/personal_contacts' element={<PrivateRoute><ContactPage/></PrivateRoute>}/>
         <Route path='*' element={<NotFoundPage/>}/>
 

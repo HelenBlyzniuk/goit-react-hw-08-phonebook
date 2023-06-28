@@ -81,6 +81,6 @@ export const CorrectContactForm = ({ contact, onModalClick }) => {
 
 
 CorrectContactForm.propTypes={
-  contact:PropTypes.array.isRequired,
- onModalClick:PropTypes.func.isRequired
+  contact:PropTypes.array,
+  onModalClick:PropTypes.func,
 }

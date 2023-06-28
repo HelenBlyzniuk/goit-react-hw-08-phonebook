@@ -42,7 +42,7 @@ export const fetchContacts=async()=>{
 }
 
 export const addContact=async(body)=>{
- console.log(body)
+ 
   const response=await instance.post('/contacts', body)
   return response;
 }

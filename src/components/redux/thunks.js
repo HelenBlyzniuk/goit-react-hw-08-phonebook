@@ -24,12 +24,19 @@ export const LoginThunk= createAsyncThunk("auth/login", async (body,{rejectWithV
  
 });
 
-export const LogOutThunk= createAsyncThunk("auth/logOut", async (_,{rejectWithValue}) => { 
+export const LogOutThunk= createAsyncThunk("auth/logOut", async (_,thunkAPI) => { 
+  const state=thunkAPI.getState();
+  const currentToken=state.auth.token;
+  
+  if(currentToken===''){
+    return thunkAPI.rejectWithValue('Unable to fetch user');
+  }
   try {
     const data=await logOut();
     return data;
   } catch (error) {
-    return rejectWithValue(error.message)
+    setToken(`Bearer ${currentToken}`);
+    return thunkAPI.rejectWithValue(error.message)
   }
  
 });
@@ -92,7 +99,6 @@ export const fetchContactsThunk= createAsyncThunk("contactss/fetchAll", async ()
 
       export const patchContactThunk=createAsyncThunk('contacts/patchContacts',async({idContact,name,number},thunkAPI)=>{
     try {
-      console.log(idContact,name,number)
       const response=await patchContact({idContact,name,number})
       
       return response.data;
