@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GetCurrentUserThunk } from 'components/redux/thunks';
 import { getUser, getIsLoggedIn } from 'components/redux/selectors';
 
-export const HomePage = () => {
+ const HomePage = () => {
   const navigate = useNavigate();
   const isLoggedIn = useSelector(getIsLoggedIn);
   const user = useSelector(getUser);
@@ -58,3 +58,5 @@ export const HomePage = () => {
     </>
   );
 };
+
+export default HomePage ;

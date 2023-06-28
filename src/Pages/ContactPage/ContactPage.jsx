@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { UserBar } from 'components/UserBar/UserBar';
 import { Title } from './ContactPage.styled';
 
-export const ContactPage=()=>{
+ const ContactPage=()=>{
     const dispatch = useDispatch();
     const loading = useSelector(getIsLoading);
     const error = useSelector(getError);
@@ -47,3 +47,4 @@ export const ContactPage=()=>{
         {items.length > 0 && !error && <ContactList />}
       </div>)
 }
+export default ContactPage;

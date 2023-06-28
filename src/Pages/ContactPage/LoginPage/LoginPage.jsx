@@ -7,7 +7,7 @@ import { FormContainer,FormLabel, FormInput,FormButton } from "components/Contac
 import { getIsLoggedIn } from "components/redux/selectors";
 
 
-export const LoginPage=()=>{
+ const LoginPage=()=>{
    const[email, setEmail]=useState('');
    const [password,setPassword]=useState('');
    const dispatch=useDispatch();
@@ -46,3 +46,4 @@ export const LoginPage=()=>{
         
     )
 }
+export default LoginPage;

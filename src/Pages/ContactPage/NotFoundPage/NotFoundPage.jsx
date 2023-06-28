@@ -1,6 +1,7 @@
 import { NotFoundSentence } from "./NotFoundPage.styled";
 
-export const NotFoundPage = () => {
+ const NotFoundPage = () => {
   return <NotFoundSentence>Not Found</NotFoundSentence>;
 };
 
+export default NotFoundPage;

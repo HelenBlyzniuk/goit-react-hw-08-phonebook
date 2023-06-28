@@ -1,14 +1,20 @@
 
 import { AppWrapper } from './App.styled';
 
+import { lazy, Suspense } from "react";
+
 import { Routes,Route } from 'react-router-dom';
-import { ContactPage } from 'Pages/ContactPage/ContactPage';
-import { HomePage } from 'Pages/ContactPage/HomePage/HomePage';
-import { LoginPage } from 'Pages/ContactPage/LoginPage/LoginPage';
-import { SignUpPage } from 'Pages/ContactPage/SignUpPage/SignUpPage';
-import { NotFoundPage } from 'Pages/ContactPage/NotFoundPage/NotFoundPage';
 import PrivateRoute from 'Routes/PrivateRoute';
 import PublicRoute from 'Routes/PublicRoute';
+const ContactPage =lazy(()=>import('Pages/ContactPage/ContactPage') );
+const HomePage =lazy(()=>import('Pages/ContactPage/HomePage/HomePage')) ;
+const LoginPage =lazy(()=>import('Pages/ContactPage/LoginPage/LoginPage')) ;
+const SignUpPage =lazy(()=>import('Pages/ContactPage/SignUpPage/SignUpPage')) ;
+const NotFoundPage =lazy(()=>import('Pages/ContactPage/NotFoundPage/NotFoundPage')) ;
+
+
+
+
 
 
 export function App() {
@@ -16,6 +22,7 @@ export function App() {
   
   return (
     <AppWrapper>
+      <Suspense fallback={<div>Loading...</div>}>
     <Routes>
       <Route path='/' element={<div>Navigation</div>}/>
         <Route index element={<HomePage/>}/>
@@ -25,6 +32,7 @@ export function App() {
         <Route path='*' element={<NotFoundPage/>}/>
 
     </Routes>
+    </Suspense>
     </AppWrapper>
   );
 }

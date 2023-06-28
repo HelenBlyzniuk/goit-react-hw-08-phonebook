@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {Navigate } from 'react-router-dom';
 
-export const SignUpPage = () => {
+ const SignUpPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
@@ -72,3 +72,5 @@ export const SignUpPage = () => {
     </FormContainer>
   );
 };
+
+export default SignUpPage;
