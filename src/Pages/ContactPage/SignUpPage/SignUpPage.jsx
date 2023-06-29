@@ -1,10 +1,10 @@
 
 import { FormContainer,FormLabel,FormInput,FormButton } from 'components/ContactForm/ContactForm.styled';
-import { getIsLoggedIn } from 'components/redux/selectors';
+
 import { SignUpThunk } from 'components/redux/thunks';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {Navigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 import { toast } from "react-hot-toast";
 
  const SignUpPage = () => {
@@ -12,7 +12,7 @@ import { toast } from "react-hot-toast";
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const dispatch=useDispatch();
-  const isLoggedIn=useSelector(getIsLoggedIn);
+  
  
 
   const handleChange = ({ target: { name, value } }) => {
@@ -43,7 +43,7 @@ import { toast } from "react-hot-toast";
   };
  
 
-  return isLoggedIn?( <Navigate to="/" replace/>): (
+  return (
     
     <FormContainer onSubmit={handleSubmit}>
       <FormLabel> Name
