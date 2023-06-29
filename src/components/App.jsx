@@ -18,6 +18,7 @@ export function App() {
   
   
   return (
+
     <AppWrapper>
       <Suspense fallback={<div>Loading...</div>}>
     <Routes>

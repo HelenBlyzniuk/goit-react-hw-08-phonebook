@@ -9,8 +9,10 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { patchContactThunk } from 'components/redux/thunks';
 import { getContacts } from 'components/redux/selectors';
+import { useNavigate } from 'react-router-dom';
 
 export const CorrectContactForm = ({ contact, onModalClick }) => {
+  const navigate=useNavigate();
   const id = contact.find(item => {
     return item.id;
   });
@@ -31,6 +33,11 @@ export const CorrectContactForm = ({ contact, onModalClick }) => {
       setNumber(e.target.value);
     }
   };
+
+  const handleClick=e=>{
+    navigate('/personal_contacts');
+    onModalClick();
+  }
   const handleSubmit = e => {
     e.preventDefault();
     const isContact = contacts.filter(
@@ -77,6 +84,7 @@ export const CorrectContactForm = ({ contact, onModalClick }) => {
         />
       </FormLabel>
       <FormButton type="submit">Correct contact</FormButton>
+      <FormButton type="button" onClick={handleClick}>Back</FormButton>
     </FormContainer>
   );
 };
