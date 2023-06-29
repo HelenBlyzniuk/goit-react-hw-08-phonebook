@@ -4,15 +4,16 @@ import { Loader } from 'components/Loader/Loader';
 import { Filter } from 'components/Filter/Filter';
 import { Error } from 'components/Error/Error';
 import { fetchContactsThunk } from 'components/redux/thunks'; 
-import { getContacts, getError, getIsLoading } from 'components/redux/selectors';
+import { getContacts, getError, getIsLoading, getUserEmail } from 'components/redux/selectors';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Title } from './ContactPage.styled';
+import { Title,TitleSpan } from './ContactPage.styled';
 
  const ContactPage=()=>{
     const dispatch = useDispatch();
     const loading = useSelector(getIsLoading);
+    const userEmail=useSelector(getUserEmail)
     const error = useSelector(getError);
     const items = useSelector(getContacts);
     
@@ -39,7 +40,7 @@ import { Title } from './ContactPage.styled';
         
         <ContactForm />
   
-        <Title>Contacts</Title>
+        <Title><TitleSpan>{userEmail}'s</TitleSpan> contacts</Title>
   
         <Filter />
         {loading && <Loader/>}

@@ -1,13 +1,15 @@
-import {Link, Outlet,useNavigate} from 'react-router-dom'
+import { Outlet,useNavigate} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'; 
 
 
 import { Suspense } from 'react';
 import { getIsLoggedIn } from 'components/redux/selectors';
 import { Loader } from 'components/Loader/Loader';
-import { AuthButtons,LoginButton,SingUpButton } from 'Pages/ContactPage/HomePage/HomePage.styled';
+import { AuthButtons,LoginButton,SingUpButton,AuthButtonsItem } from 'Pages/ContactPage/HomePage/HomePage.styled';
 import { AppWrapper } from 'components/App.styled';
 import { LogOutThunk } from 'components/redux/thunks';
+import { Header,StyledLink  } from './Sharelayout.styled';
+
 
  const SharedLayout=()=>{
     const dispatch=useDispatch();
@@ -20,38 +22,34 @@ import { LogOutThunk } from 'components/redux/thunks';
     return(
 
         <AppWrapper>
-        <header>
+        <Header>
         <nav>
-            <Link to='/'>Home</Link>
-            <Link to='personal_contacts'>My contacts</Link>
+            <StyledLink to='/'>Home</StyledLink>
+            <StyledLink to='personal_contacts'>My contacts</StyledLink>
         </nav>
         {!isLoggedIn&&<AuthButtons>
-            <li className="authBtn">
+            <AuthButtonsItem>
               <SingUpButton onClick={() => navigate('/signup')}>
                 Sign Up
               </SingUpButton>
-            </li>
-            <li className="authBtn">
+            </AuthButtonsItem>
+            <AuthButtonsItem>
               <LoginButton type="button" onClick={() => navigate('/login')}>
                 Log In
               </LoginButton>
-            </li>
+            </AuthButtonsItem>
           </AuthButtons>} 
           {isLoggedIn&&<AuthButtons>
-            <li className="authBtn">
-              <LoginButton type="button" onClick={() => navigate('/personal_contacts')}>
-                Contacts
-              </LoginButton>
-            </li>
-            <li className="authBtn">
+            
+            <AuthButtonsItem>
             <LoginButton type="button" onClick={handleClick}>
         Log Out
       </LoginButton>
-            </li>
+            </AuthButtonsItem>
             
           </AuthButtons>}
 
-          </header>
+          </Header>
           <Suspense fallback={<Loader/>}>
           <Outlet/>
           </Suspense>

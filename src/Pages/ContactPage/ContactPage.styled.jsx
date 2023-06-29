@@ -7,3 +7,6 @@ export const Title = styled.p`
   margin-right:auto;
   margin-left:auto;
 `;
+
+export const TitleSpan=styled.span`
+color:green;`

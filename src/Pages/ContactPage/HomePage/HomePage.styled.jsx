@@ -34,11 +34,15 @@ display:flex;
 justify-content:center;
 gap:100px;
 list-style:none;
-position:absolute;
 bottom:40px;
 min-width:500px;
 padding:0px;
+margin:0;
 `
+export const AuthButtonsItem=styled.li`
+padding:0;
+height: 40px;
+display:flex;`
 
 export const SingUpButton=styled.button`
 
