@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import React, { useEffect } from 'react';
 
 import tel from '../../../images/tel.jpg';
@@ -7,20 +7,18 @@ import {
   TitleWrapper,
   HomePageTitle,
   HomePageSlogan,
-  AuthButtons,
-  LoginButton,
-  SingUpButton,
+  
 } from './HomePage.styled';
-import { UserBar } from 'components/UserBar/UserBar';
+// import { UserBar } from 'components/UserBar/UserBar';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { GetCurrentUserThunk } from 'components/redux/thunks';
-import { getUser, getIsLoggedIn } from 'components/redux/selectors';
+
 
  const HomePage = () => {
-  const navigate = useNavigate();
-  const isLoggedIn = useSelector(getIsLoggedIn);
-  const user = useSelector(getUser);
+  // const navigate = useNavigate();
+  // const isLoggedIn = useSelector(getIsLoggedIn);
+  // const user = useSelector(getUser);
   
   
   const dispatch=useDispatch();
@@ -32,14 +30,14 @@ import { getUser, getIsLoggedIn } from 'components/redux/selectors';
  
   return (
     <>
-      {isLoggedIn && user.email!=='' &&<UserBar/>}
+      {/* {isLoggedIn && user.email!=='' &&<UserBar/>} */}
       <HomePageWrapper>
       
         <img src={tel} alt="telephone" className="homePageImg " />
         <TitleWrapper>
           <HomePageTitle>Create your Phonebook:</HomePageTitle>
           <HomePageSlogan>Orchestrate your contacts</HomePageSlogan>
-         {!isLoggedIn&&<AuthButtons>
+         {/* {!isLoggedIn&&<AuthButtons>
             <li className="authBtn">
               <SingUpButton onClick={() => navigate('/signup')}>
                 Sign Up
@@ -50,7 +48,7 @@ import { getUser, getIsLoggedIn } from 'components/redux/selectors';
                 Log In
               </LoginButton>
             </li>
-          </AuthButtons>} 
+          </AuthButtons>}  */}
           
         </TitleWrapper>
       </HomePageWrapper>
