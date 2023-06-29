@@ -2,6 +2,7 @@
 import { lazy, } from "react";
 
 import { Routes,Route } from 'react-router-dom';
+import RememberedRoute from 'Routes/RememberRoute'
 import PrivateRoute from 'Routes/PrivateRoute';
 import PublicRoute from 'Routes/PublicRoute';
 import  SharedLayout  from "./Sharelayout/Sharelayout";
@@ -22,7 +23,7 @@ export const App=() =>{
     <Toaster/>
     <Routes>
       <Route path='/' element={<SharedLayout/>}>
-        <Route index element={<HomePage/>}/>
+        <Route index element={<RememberedRoute><HomePage/></RememberedRoute>}/>
         <Route path='signup' element={<PublicRoute><SignUpPage/></PublicRoute>}/>
         <Route path='login' element={<PublicRoute><LoginPage/></PublicRoute>}/>
         <Route path='personal_contacts' element={<PrivateRoute><ContactPage/></PrivateRoute>}/>

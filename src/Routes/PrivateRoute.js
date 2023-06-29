@@ -1,9 +1,11 @@
 const { useSelector } = require("react-redux")
-const { Navigate } = require("react-router-dom")
+const { Navigate, useLocation } = require("react-router-dom")
 
 
  function PrivateRoute({children}){
     const isLoggedIn=useSelector(state=>state.auth.isLoggedIn)
-    return isLoggedIn?children:<Navigate to='/'/>
+    const location=useLocation()
+    console.log("privat",location)
+    return isLoggedIn?children:<Navigate to='/' state={location}/>
 }
 export default PrivateRoute
