@@ -5,6 +5,7 @@ import { SignUpThunk } from 'components/redux/thunks';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {Navigate } from 'react-router-dom';
+import { toast } from "react-hot-toast";
 
  const SignUpPage = () => {
   const [email, setEmail] = useState('');
@@ -26,11 +27,17 @@ import {Navigate } from 'react-router-dom';
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     
     if (email !== '' && password !== '' && name !== '') {
-        dispatch(SignUpThunk({ name, email, password }))   
+      try {
+        await  dispatch(SignUpThunk({ name, email, password })).unwrap()
+        toast.success('Signed up successfully')} 
+      catch (error) {
+        toast.error('Error Sign Up')  
+     }
+          
     }
 
   };
@@ -67,7 +74,7 @@ import {Navigate } from 'react-router-dom';
         />
       </FormLabel>
       <FormButton type="submit">
-        Sign in
+        Sign up
       </FormButton>
     </FormContainer>
   );

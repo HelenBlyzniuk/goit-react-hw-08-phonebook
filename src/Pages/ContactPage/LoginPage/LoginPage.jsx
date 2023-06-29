@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { FormContainer,FormLabel, FormInput,FormButton } from "components/ContactForm/ContactForm.styled";
 import { getIsLoggedIn } from "components/redux/selectors";
-
+import { toast } from "react-hot-toast";
 
  const LoginPage=()=>{
    const[email, setEmail]=useState('');
@@ -24,10 +24,16 @@ import { getIsLoggedIn } from "components/redux/selectors";
    }
 
 
-   const handleSubmit=(e)=>{
+   const handleSubmit=async(e)=>{
       e.preventDefault();
       if(email!==''&& password!==''){
-        dispatch(LoginThunk({email,password}))
+        try {
+           await dispatch(LoginThunk({email,password})).unwrap()
+           toast.success('Logged in successfully')} 
+         catch (error) {
+           toast.error('Error login')  
+        }
+      
       }
   
    }
