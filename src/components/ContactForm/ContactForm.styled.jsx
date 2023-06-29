@@ -35,7 +35,7 @@ export const FormButton = styled.button`
   font-size: 15px;
   background-color: green;
   color: white;
-  display: block;
+  display: inline-block;
   margin-top: 15px;
   border: solid 1px white;
   min-width: 100px;
