@@ -7,7 +7,7 @@ import { fetchContactsThunk } from 'components/redux/thunks';
 import { getContacts, getError, getIsLoading } from 'components/redux/selectors';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { UserBar } from 'components/UserBar/UserBar';
+
 import { Title } from './ContactPage.styled';
 
  const ContactPage=()=>{
@@ -35,7 +35,7 @@ import { Title } from './ContactPage.styled';
           color: 'grey',
         }}
       >
-        <UserBar/>
+        
         
         <ContactForm />
   

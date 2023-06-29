@@ -9,16 +9,20 @@ import {
   HomePageSlogan,
   
 } from './HomePage.styled';
-// import { UserBar } from 'components/UserBar/UserBar';
+
 
 import { useDispatch} from 'react-redux';
 import { GetCurrentUserThunk } from 'components/redux/thunks';
+import { getIsLoggedIn,getUserEmail } from 'components/redux/selectors';
+import { useSelector } from 'react-redux';
+import { UserBarGreeting } from 'components/UserBar/UserBar';
 
 
  const HomePage = () => {
-  // const navigate = useNavigate();
-  // const isLoggedIn = useSelector(getIsLoggedIn);
-  // const user = useSelector(getUser);
+  
+  const isLoggedIn = useSelector(getIsLoggedIn);
+  const userEmail = useSelector(getUserEmail);
+ 
   
   
   const dispatch=useDispatch();
@@ -30,25 +34,15 @@ import { GetCurrentUserThunk } from 'components/redux/thunks';
  
   return (
     <>
-      {/* {isLoggedIn && user.email!=='' &&<UserBar/>} */}
+     
       <HomePageWrapper>
-      
+       
         <img src={tel} alt="telephone" className="homePageImg " />
         <TitleWrapper>
+        {isLoggedIn && userEmail!=='' &&<UserBarGreeting/>}
           <HomePageTitle>Create your Phonebook:</HomePageTitle>
           <HomePageSlogan>Orchestrate your contacts</HomePageSlogan>
-         {/* {!isLoggedIn&&<AuthButtons>
-            <li className="authBtn">
-              <SingUpButton onClick={() => navigate('/signup')}>
-                Sign Up
-              </SingUpButton>
-            </li>
-            <li className="authBtn">
-              <LoginButton type="button" onClick={() => navigate('/login')}>
-                Log In
-              </LoginButton>
-            </li>
-          </AuthButtons>}  */}
+        
           
         </TitleWrapper>
       </HomePageWrapper>
