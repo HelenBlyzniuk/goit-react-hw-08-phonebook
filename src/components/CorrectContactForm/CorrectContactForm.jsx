@@ -6,7 +6,7 @@ import {
   FormInput,
   FormButton,
 } from 'components/ContactForm/ContactForm.styled';
-import { CorrectFormButtons } from './CorrectContactForm.styled';
+import { CorrectFormButtons,CorrectFormButtonsItem } from './CorrectContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { patchContactThunk } from 'components/redux/thunks';
 import { getContacts } from 'components/redux/selectors';
@@ -85,8 +85,8 @@ export const CorrectContactForm = ({ contact, onModalClick }) => {
         />
       </FormLabel>
       <CorrectFormButtons>
-      <FormButton type="submit">Correct contact</FormButton>
-      <FormButton type="button" onClick={handleClick}>Back</FormButton>
+        <CorrectFormButtonsItem> <FormButton type="submit">Correct </FormButton></CorrectFormButtonsItem>
+        <CorrectFormButtonsItem><FormButton type="button" onClick={handleClick}>Back</FormButton></CorrectFormButtonsItem>
       </CorrectFormButtons>
     </FormContainer>
   );
