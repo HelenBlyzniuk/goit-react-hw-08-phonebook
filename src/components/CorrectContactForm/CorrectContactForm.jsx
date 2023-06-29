@@ -60,6 +60,7 @@ export const CorrectContactForm = ({ contact, onModalClick }) => {
           placeholder={name}
           onChange={onChange}
           required
+          value={name}
         />
       </FormLabel>
       <FormLabel>
@@ -72,6 +73,7 @@ export const CorrectContactForm = ({ contact, onModalClick }) => {
           required
           onChange={onChange}
           placeholder={number}
+          value={number}
         />
       </FormLabel>
       <FormButton type="submit">Correct contact</FormButton>
