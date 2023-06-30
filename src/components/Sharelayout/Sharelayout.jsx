@@ -15,6 +15,7 @@ import { Header,StyledLink  } from './Sharelayout.styled';
     const dispatch=useDispatch();
     const navigate = useNavigate();
   const isLoggedIn = useSelector(getIsLoggedIn);
+  
 
   const handleClick = () => {
     dispatch(LogOutThunk());
@@ -51,6 +52,7 @@ import { Header,StyledLink  } from './Sharelayout.styled';
 
           </Header>
           <Suspense fallback={<Loader/>}>
+            {}
           <Outlet/>
           </Suspense>
           </AppWrapper>

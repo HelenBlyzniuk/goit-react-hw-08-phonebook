@@ -8,11 +8,13 @@ export function handlePending(state) {
     state.error = error?error.message:payload;
     state.isLoading = false;
     state.isLoggedIn=false;
+    // state.isRefreshing=false;
     
   }
   export function handleContactFetch(state, { payload }){
     state.isLoading = false;
     state.items = payload;
+    
   }
   export function handleContactAdd(state,{payload}){
     state.isLoading = false;
@@ -49,5 +51,14 @@ export function handlePending(state) {
     state.isLoading = false;
     state.currentUser = payload;
     state.isLoggedIn = true;
+  
+   
   };
+  
+//  export const handleGetCurrentUserPending=(state)=>{
+//   state.isLoading = true;
+//   state.error = null;
+//   state.isLoggedIn=false;
+//   state.isRefreshing=true;
+//  }
   

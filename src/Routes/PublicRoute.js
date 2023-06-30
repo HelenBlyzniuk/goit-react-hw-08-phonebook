@@ -6,6 +6,6 @@ const { Navigate } = require("react-router-dom")
 
  function PublicRoute({children}){
     const isLoggedIn=useSelector(getIsLoggedIn);
-    return isLoggedIn?<Navigate to='/'/>:children;
+    return isLoggedIn?<Navigate to='/personal_contacts'/>:children;
 }
 export default PublicRoute;

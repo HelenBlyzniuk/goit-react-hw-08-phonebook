@@ -12,6 +12,8 @@ import {
   handleLoginFulfilled,
   handleLogOutFulfilled,
   handleCurrentUserFulfilled,
+  // handleGetCurrentUserPending
+  
 } from './handlers';
 
 const initialState = {
@@ -20,6 +22,8 @@ const initialState = {
   error: '',
   user: {},
   isLoggedIn: false,
+  isRefreshing:false,
+ 
 };
 
 const authSlice = createSlice({
@@ -30,6 +34,7 @@ const authSlice = createSlice({
       .addCase(SignUpThunk.fulfilled, handleSignUpThunkFullfilled)
       .addCase(LoginThunk.fulfilled, handleLoginFulfilled)
       .addCase(GetCurrentUserThunk.fulfilled, handleCurrentUserFulfilled)
+      // .addCase(GetCurrentUserThunk.pending,handleGetCurrentUserPending)
       .addCase(LogOutThunk.fulfilled, handleLogOutFulfilled)
       .addMatcher(({ type }) => {
         type.endsWith('/pending');
