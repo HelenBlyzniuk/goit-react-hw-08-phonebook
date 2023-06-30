@@ -7,7 +7,7 @@ import PrivateRoute from 'Routes/PrivateRoute';
 import PublicRoute from 'Routes/PublicRoute';
 import  SharedLayout  from "./Sharelayout/Sharelayout";
 import { Toaster } from "react-hot-toast";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 // import { Loader } from "./Loader/Loader";
 const ContactPage =lazy(()=>import('Pages/ContactPage/ContactPage') );
 const HomePage =lazy(()=>import('Pages/ContactPage/HomePage/HomePage')) ;
@@ -18,8 +18,8 @@ const NotFoundPage =lazy(()=>import('Pages/ContactPage/NotFoundPage/NotFoundPage
 
 
 export const App=() =>{
-  // const isRefreshing=useSelector(state=>state.auth.isRefreshing)
-  // console.log(isRefreshing)
+  const isRefreshing=useSelector(state=>state.auth.isRefreshing)
+  console.log(isRefreshing)
   
   return (
     <>

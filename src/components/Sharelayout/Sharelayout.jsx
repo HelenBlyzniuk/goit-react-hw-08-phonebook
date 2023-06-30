@@ -15,7 +15,7 @@ import { Header,StyledLink  } from './Sharelayout.styled';
     const dispatch=useDispatch();
     const navigate = useNavigate();
   const isLoggedIn = useSelector(getIsLoggedIn);
-  
+  // const isRefreshing=useSelector(state=>state.auth.isRefreshing)
 
   const handleClick = () => {
     dispatch(LogOutThunk());
