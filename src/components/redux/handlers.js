@@ -67,15 +67,18 @@ export function handlePending(state) {
     state.isLoading = false;
     state.user = {};
     state.isLoggedIn = false;
+    
   };
   export const handleLogOutPending = (state, { payload }) => {
     state.isLoading = true;
     state.error = null;
-    state.isLoggedIn=false;}
+    state.isLoggedIn=false;
+    }
   export const handleLogOutRejected = (state, { error,payload }) => {
     state.error = error?error.message:payload;
     state.isLoading = false;
     state.isLoggedIn=false;
+   
   };
   export const handleCurrentUserFulfilled = (state, { payload }) => {
   

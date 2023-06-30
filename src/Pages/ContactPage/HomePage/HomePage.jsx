@@ -1,5 +1,5 @@
 // import { useNavigate } from 'react-router-dom';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import tel from '../../../images/tel.jpg';
 import {
@@ -11,8 +11,8 @@ import {
 } from './HomePage.styled';
 
 
-import { useDispatch} from 'react-redux';
-import { GetCurrentUserThunk } from 'components/redux/thunks';
+// import { useDispatch} from 'react-redux';
+// import { GetCurrentUserThunk } from 'components/redux/thunks';
 import { getIsLoggedIn,getUserEmail } from 'components/redux/selectors';
 import { useSelector } from 'react-redux';
 import { UserBarGreeting } from 'components/UserBar/UserBar';
@@ -22,14 +22,16 @@ import { UserBarGreeting } from 'components/UserBar/UserBar';
   
   const isLoggedIn = useSelector(getIsLoggedIn);
   const userEmail = useSelector(getUserEmail);
+  // const isRefreshing=useSelector(state=>state.auth.isRefreshing)
+  // console.log(isRefreshing)
  
   
   
-  const dispatch=useDispatch();
+  // const dispatch=useDispatch();
 
-    useEffect(()=>{
-    dispatch(GetCurrentUserThunk());
-  },[dispatch])
+  //   useEffect(()=>{
+  //   dispatch(GetCurrentUserThunk());
+  // },[dispatch])
   
  
   return (
