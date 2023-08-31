@@ -23,7 +23,9 @@ const NotFoundPage =lazy(()=>import('Pages/ContactPage/NotFoundPage/NotFoundPage
 
 
 export const App=() =>{
-  const isRefreshing=useSelector(state=>state.auth.isRefreshing)
+  const isRefreshing=useSelector(state=>state.auth.isRefreshing);
+  const token=useSelector(state=>state.auth.token)
+  console.log(token)
   console.log(isRefreshing)
  
   
